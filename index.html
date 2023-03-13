@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>toggle_btn_offcanvas_push_down_bs5.0.2</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- bs5.0.2 iso .. thanks to: https://github.com/franky920920/bootstrap-5-isolated -->
+    <link rel="stylesheet" href="https://pionezero.com/bs5.0.2_iso/bootstrap-isolated.css"/>
+    
+    <style>
+      .admin {
+        padding:2px 2px 2px 2px !important;
+        min-width: 140px; /* 140px is minimum width to make it work */
+        height: 46px;
+        line-height: 36px !important; /* only way so far to control vertical spacing for pseudo elements */
+        outline: #4CAF50 solid 0px; /* for dev to see border */
+      }
+      .admin::after {
+        content: "admin";
+        color: #14181e;
+        font-family:lato;
+        font-size: 17px;
+        color: grey;
+        padding-left:5px; /* only l r padding or margin work for pseudo element text, not top or bottom */
+      }
+      /* NOTES and credits
+      bs5.0.2 navbar
+      https://getbootstrap.com/docs/5.0/components/navbar/
+
+      bs5.0.2 accordion
+      https://getbootstrap.com/docs/5.0/components/accordion/
+
+      bs5.0.2 iso
+      https://pionezero.com/bs5.0.2_iso/bootstrap-isolated.css
+
+      pseudo element text
+      https://duckduckgo.com/?q=add+pseudo+element+text+after+input+label&atb=v324-1&ia=web
+      https://stackoverflow.com/questions/24867008/css-to-specify-pseudo-element-after-following-input
+
+      pseudo element checkbox (FOUND IT)
+      https://duckduckgo.com/?q=add+pseudo+element+for+checkbox+after+input+label&atb=v324-1&ia=web
+      https://stackoverflow.com/questions/12831620/is-the-before-pseudo-element-allowed-on-an-inputtype-checkbox
+      https://stackoverflow.com/questions/3772273/pure-css-checkbox-image-replacement/11850353#11850353
+      https://lokesh-coder.github.io/pretty-checkbox/
+      https://github.com/lokesh-coder/pretty-checkbox
+      https://raw.githubusercontent.com/lokesh-coder/pretty-checkbox/master/dist/pretty-checkbox.css (USEFUL CODE)
+
+      pseudo element spacing
+      https://duckduckgo.com/?q=pseudo+element+spacing&atb=v324-1&ia=web
+      https://www.blindemanwebsites.com/today-i-learned/2019/spacing-in-css-pseudo-element-content/
+      https://stackoverflow.com/questions/50264375/add-a-space-in-css-content#answer-50265037
+
+      invisible checkbox
+      https://duckduckgo.com/?q=border+width+checkbox+css&atb=v324-1&ia=web
+      https://stackoverflow.com/questions/2460501/how-to-change-checkboxs-border-style-in-css
+      */
+
+      /* toggle button thanks to: https://codepen.io/mburnette/pen/LxNxNg */
+      input[type=checkbox]{
+        height: 0;
+        width: 0;
+        visibility: hidden;
+      }
+
+      label {
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 70px;
+        height: 40px;
+        background: grey;
+        display: block;
+        border-radius: 100px;
+        position: relative;
+      }
+
+      label:after {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        border-radius: 90px;
+        transition: 0.3s;
+      }
+
+      input:checked + label {
+        background: #2c7bd3; /* was #bada55 */
+      }
+
+      input:checked + label:after {
+        left: calc(100% - 5px);
+        transform: translateX(-100%);
+        background: #c0d8f2; /* added */
+      }
+
+      label:active:after {
+        width: 70px; /* was 130px */
+      }
+
+      // centering
+      /* body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      } */
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  </head>
+  <body>
+
+    <!-- bs5.0.02 iso -->
+    <div class="bs5">
+
+            <!-- accordion container_1 -->
+            <div class="accordion" id="accordionExample">
+              <!-- accordion container_2 -->
+              <div class="accordion-item" style="outline:none !important;border:none !important;">
+      
+                <!-- any toggle button here -->
+                <h2 class="accordion-header" id="headingOne">
+      
+                  <!-- original bs5.0.2 accordion button -->
+                  <!-- <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Accordion Item #1
+                  </button> -->
+      
+                  <!-- optional button (moved to inside the navbar below -->
+      
+                </h2>
+                <!-- / any toggle button here -->
+                
+                <!-- accordion content container_1 -->
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <!-- accordion content container_2 -->
+                  <div class="accordion-body">
+      
+                    <!-- test content -->
+                    <div style="padding:20px;font-family:lato;color:#14181E;">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
+      
+                    <!-- accordion content -->
+                    <!-- <form>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                      </div>
+                      <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form> -->
+                    <!-- / accordion content -->
+      
+                  </div>
+                  <!-- / accordion content container_2 -->
+                </div>
+                <!-- / accordion content container_1 -->
+      
+              </div>
+              <!-- / accordion container_2 -->
+            </div>
+            <!-- / accordion container_1 -->
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top:0px !important;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <!-- <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+            <!-- thanks to: https://codepen.io/mburnette/pen/LxNxNg -->
+            <div class="admin">
+              <input type="checkbox" id="switch" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" /><label for="switch">Toggle</label>
+            </div>
+
+          </div>
+        </div>
+      </nav>
+
+    </div>
+    <!-- / bs5.0.02 iso -->
+
+  </body>
+</html>
