@@ -13,7 +13,7 @@
         padding:2px 2px 2px 2px !important;
         min-width: 140px; /* 140px is minimum width to make it work */
         height: 46px;
-        line-height: 36px !important; /* only way so far to control vertical spacing for pseudo elements */
+        line-height: 29px !important; /* only way so far to control vertical spacing for pseudo elements */
         outline: #4CAF50 solid 0px; /* for dev to see border */
       }
       .admin::after {
@@ -54,6 +54,9 @@
       invisible checkbox
       https://duckduckgo.com/?q=border+width+checkbox+css&atb=v324-1&ia=web
       https://stackoverflow.com/questions/2460501/how-to-change-checkboxs-border-style-in-css
+
+      bootstrap justify-content-center not working
+      https://stackoverflow.com/questions/66031557/bootstrap-justify-content-center-not-centering-applied-divs
       */
 
       /* toggle button thanks to: https://codepen.io/mburnette/pen/LxNxNg */
@@ -66,8 +69,8 @@
       label {
         cursor: pointer;
         text-indent: -9999px;
-        width: 70px;
-        height: 40px;
+        width: 55px;
+        height: 30px;
         background: grey;
         display: block;
         border-radius: 100px;
@@ -77,10 +80,10 @@
       label:after {
         content: '';
         position: absolute;
-        top: 5px;
+        top: 3px;
         left: 5px;
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
         background: #fff;
         border-radius: 90px;
         transition: 0.3s;
@@ -114,13 +117,13 @@
   </head>
   <body>
 
-    <!-- bs5.0.02 iso -->
-    <div class="bs5">
+    <!-- bs5.0.02 iso .. neg margin to disable white margin in drop-down accordion, compensated with pos margin in nav -->
+    <div class="bs5" style="margin:-11px;">
 
             <!-- accordion container_1 -->
             <div class="accordion" id="accordionExample">
               <!-- accordion container_2 -->
-              <div class="accordion-item" style="outline:none !important;border:none !important;">
+              <div class="accordion-item" style="outline:none !important;border:none !important;background:#2c2b3b !important;">
       
                 <!-- any toggle button here -->
                 <h2 class="accordion-header" id="headingOne">
@@ -139,11 +142,18 @@
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                   <!-- accordion content container_2 -->
                   <div class="accordion-body">
-      
-                    <!-- test content -->
-                    <div style="padding:20px;font-family:lato;color:#14181E;">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                    <!-- disabline container disables l r margins -->
+                    <!-- <div class="container"> -->
+                    <div class="row text-center" style="gap:10px;margin:-7px !important;">
+
+                      <div class="col" style="background:#5c5a7a;height:4em;flex-grow:4;"></div>
+                      <div class="col" style="background:#5c5a7a;height:4em;flex-grow:2;"></div>
+                      <div class="col" style="background:#5c5a7a;height:4em;flex-grow:2;"></div>
+                      <div class="col" style="background:#5c5a7a;height:4em;flex-grow:2;"></div>
+
                     </div>
+                    <!-- </div> -->
       
                     <!-- accordion content -->
                     <!-- <form>
@@ -174,7 +184,7 @@
             </div>
             <!-- / accordion container_1 -->
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top:0px !important;">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top:0px !important;padding:11px;">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Navbar</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
